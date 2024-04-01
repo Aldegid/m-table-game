@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
 
 import classes from './card.module.scss';
+import error from '../../assets/error.svg';
+import success from '../../assets/success.svg';
 
 const DATA = { task: '7 x 8', answers: [56, 65, 48], answer: 56 };
-const ANSWER_UI = {
-  wrong: 'Не вірно',
-  right: 'Вірно',
-};
 
 export const Card = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -57,10 +55,16 @@ export const Card = () => {
                 : classes.card_back__wrong
             }`}
           >
-            <div className={classes.simbol}>{rightAnswer ? '✅' : '❌'}</div>
+            <div className={classes.simbol}>
+              {rightAnswer ? (
+                <img src={success} alt='success' />
+              ) : (
+                <img src={error} alt='error' />
+              )}
+            </div>
             <div className={classes.buttons}>
               <button className={classes.buttons_btn} onClick={resetBoard}>
-                {rightAnswer ? 'Наступна вправа' : 'Спробувати ще'}
+                {rightAnswer ? 'Next exercise' : 'Try again'}
               </button>
             </div>
           </div>
