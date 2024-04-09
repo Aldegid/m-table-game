@@ -47,7 +47,6 @@ export const Card: React.FC = () => {
 
   return (
     <div className={`${classes.card} ${isFlipped ? classes.flipped : ''}`}>
-      <pre>{JSON.stringify(currentLesson, null, 2)}</pre>
       <div className={classes.card_inner}>
         <div className={classes.card_front}>
           <p className={classes.task}>{currentLesson.task}</p>
